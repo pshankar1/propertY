@@ -1,13 +1,21 @@
 body{
     background-color:rgb(0, 174, 255);
     background-image:url(../img/backgroundimg.jpg);
-    background-size:cover;
+    background-size:auto;
 }
 h1{
     text-align:center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color:rgb(255, 0, 0);
 }
+
+.img1{
+    display:flex;
+    position:relative;
+    width:500px;
+    height:285px;
+    border-radius:10px;
+  }
 .header{
     background-color:rgb(0, 174, 255);
     opacity:0.6;
@@ -19,31 +27,39 @@ h1{
 h2{
     color:rgba(89, 0, 255, 0.658);
     font-size:50px;
+    text-align:center;
 }
 .bdy{
-    display:flex;
+    display:block;
+    position:relative;
     padding-top:50px;
     padding-bottom:5px;
     background-color:white;
     padding-bottom:50px;
     opacity:0.7;
 }
+p{
+    text-align:center;
+    font-size:50px;
+    color:red;
+    background-color: white;
+}
 .contain{
     text-align:center;
     display:block;
     background-color:white;
-    left:30%;
-    top:50%;
-    margin-left: auto;
-    margin-right:auto;
-    border: 2px;
-    background-image:url(../img/ForSale.jpg);
+    border-style:double;
+    border: 10px;
+    border-color:#2196F3;
     background-size:contain;
     background-repeat:no-repeat;
     width:500px;
     height:285px;
     border-radius:10px;
     opacity:1;
+    position:relative;
+    padding:5px;
+    background-image:url(../img/ForSale.jpg);
 }
 .contain:hover {
     box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2);
@@ -102,3 +118,41 @@ h2{
     from{width: 500px; height:285px}
     to {width:700px; height:500px}
 }
+
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* The actual popup */
+  .popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+  }
+  
+  /* Popup arrow */
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
