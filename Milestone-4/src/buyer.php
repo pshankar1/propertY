@@ -30,25 +30,37 @@
             die("Connection failed: " . $conn->connect_error);
         } 
 
-        $sql = "SELECT Pname, price, location, beds, road, built, parking, owns FROM Property";
+        $sql = "SELECT Pname, price, location, beds, road, built, parking, owns, img FROM Property";
         $result = $conn->query($sql);
 
         if($result->num_rows > 0){
-
-            echo "<table class = bdy>";
+            echo "<div class = bdy>";
+            echo "<table class = ''>";
             while($row = mysqli_fetch_array($result)){
-                echo "<tr class = 'contain'>";
-                echo " <td> Name: ".($row[0])."</td>";
-                echo " <td>Price: $".($row[1])."</td>";
-                echo " <td>Location: ".($row[2])."</td>";
-                echo " <td>Beds: ".($row[3])."</td>";
-                echo " <td> Distance from street: ".($row[4])."</td>";
-                echo " <td>Built in: ".($row[5])."</td>";
-                echo " <td>Parking: ".($row[6])."</td>";
-                echo " <td>Owner: ".($row[7])."</td>";
-                echo '</tr>';
+                $picture = $row[8];
+                echo "<dl class = 'contain'>";
+                echo "<img class = 'image' src = '../img/$picture.jpg'>";
+                echo "<div class = 'overlay'>";
+                echo "<dt class = 'title'>Name:<dt>";
+                echo " <dd class = 'text'> ".($row['Pname'])."</td>";
+                echo "<dt class = 'title'>Price:<dt>";
+                echo " <dd class = 'text'> $".($row[1])."</td>";
+                echo "<dt class = 'title'>Location:<dt>";
+                echo " <dd class = 'text'> ".($row[2])."</td>";
+                echo "<dt class = 'title'>Beds<dt>";
+                echo " <dd class = 'text'> ".($row[3])."</td>";
+                echo "<dt class = 'title'>Distance from street:<dt>";
+                echo " <dd class = 'text'> ".($row[4])." feet </td>";
+                echo "<dt class = 'title'>Built in:<dt>";
+                echo " <dd class = 'text'> ".($row[5])."</td>";
+                echo "<dt class = 'title'>Parking spaces:<dt>";
+                echo " <dd class = 'text'> ".($row[6])."</td>";
+                echo "<dt class = 'title'>Owned by:<dt>";
+                echo " <dd class = 'text'> ".($row[7])."</td>"; 
+                echo '</dl>';
             }
             echo "</table>";
+            echo "</div>";
         } else {
             echo "0 results";
         }

@@ -44,8 +44,8 @@ p{
     color:red;
     background-color: white;
 }
-.contain{
-    text-align:center;
+tr{
+    text-align:left;
     display:block;
     background-color:white;
     border-style:double;
@@ -59,14 +59,70 @@ p{
     opacity:1;
     position:relative;
     padding:5px;
-    background-image:url(../img/ForSale.jpg);
 }
-.contain:hover {
+td{
+    text-align:left;
+    font-size:20px;
+}
+.contain{
+    text-align:center;
+    display:block;
+    background-color:white;
+    border-style:double;
+    border: 10px;
+    border-color:#2196F3;
+    background-size:contain;
+    background-repeat:no-repeat;
+    width:500px;
+    height:285px;
+    border-radius:10px;
+    
+    position:relative;
+    padding-top:20px;
+    margin-top:50px;
+    
+}
+.image{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.contain:hover .overlay{
     box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2);
-    animation-name:transition;
-    animation-duration:4s;
+    opacity:1;
   }
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 125%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+    border-radius:10px;
+}
   
+.text {
+    color: black;
+    font-size: 15px;
+    position:relative;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    margin-left:250px;
+    margin-top:5px;
+
+    
+}
+.title{
+    text-align:left;
+    font-size:17px;
+    font-weight:400;
+}
 .navbar{
     overflow: hidden;
     background-color: #e9e9e9;
