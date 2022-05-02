@@ -7,6 +7,7 @@
         <form method="POST" action = "search.php">
                 <div class = "navbar">
                     <a class="active" href="../../">Logout</a>
+                    <a class = "active" href = "buyer.php">Home</a>
                     <input type="text" name = "search" placeholder="Search Owner and price range ">
                 </div>
         </form>
@@ -15,6 +16,11 @@
                     <h2>Buy A House With Us, Please?</h2>
                 </div>
             </div>
+        <script>
+            document.getElementById("myButton").onclick = function () {
+                location.href = "example.com";
+            };
+        </script>
     <?php
     $servername = "localhost";
     $username = "dwekesa1";
@@ -33,11 +39,14 @@
     }
     $search = $_POST['search'];
     $searching = explode(" ", $search);
-    $searching[1]= intval($searching[1]);
+    $price= intval($searching[1]);
+    $search= $searching[0];
+
 
     $sql = "SELECT * FROM Property
-    LEFT JOIN users ON Property.owns = users.username
-    WHERE Property.price < $searching[1]";
+    WHERE Property.owns = '$search'
+    AND
+    Property.price < $price";
     
     $result = $conn->query($sql);
 
@@ -47,7 +56,7 @@
         while($row = mysqli_fetch_array($result)){
             $picture = $row[8];
             echo "<dl class = 'contain'>";
-                echo "<img class = 'image' src = '../img/$picture.jpg'>";
+                echo "<img class = 'image' onclick= 'location.href = 'card.php';' id= 'myButton'src = '../img/$picture.jpg'>";
                 echo "<div class = 'overlay'>";
                 echo "<dt class = 'title'>Name:<dt>";
                 echo " <dd class = 'text'> ".($row['Pname'])."</td>";

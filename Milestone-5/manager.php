@@ -19,7 +19,7 @@
             $result = $conn->query($sql);
 
             if($result->num_rows > 0){
-                echo "<div class = 'contain'";
+                echo "<div class = 'contain'>";
                 echo "<img class = 'image' src = ../img/buyer.png>";
                 echo "<div class = 'overlay'>";
                 echo "<h2>Buyers</h2>";
@@ -36,17 +36,13 @@
             $result = $conn->query($sql);
 
             if($result->num_rows > 0){
-                echo "<div class = 'contain2'";
+                echo "<div class = 'contain2'>";
                 echo "<img class = 'image' src = ../img/seller.jpg>";
                 echo "<div class = 'overlay'>";
                 echo "<h2>Sellers</h2>";
                 while($row = mysqli_fetch_array($result)){
                     echo "<p>".$row[0]."</p>";
-                    echo "";
-                    echo "";
-                    echo "";
-                    echo "";
-                    echo "";
+                    
                 }
                 echo "</div>";
                 echo "</div>";
@@ -58,7 +54,7 @@
             $result = $conn->query($sql);
 
             if($result->num_rows > 0){
-                echo "<div class = 'contain3'";
+                echo "<div class = 'contain3'>";
                 echo "<img class = 'image' src = ../img/properties.jpg>";
                 echo "<div class = 'overlay'>";
                 echo "<h2>Properties</h2>";
@@ -70,6 +66,41 @@
             } else {
                 echo "0 results";
             }
+
+            $sql = "SELECT * FROM Property ORDER BY price DESC";
+            $result = $conn->query($sql);
+
+            if($result->num_rows > 0){
+                echo "<div class = 'contain'>";
+                echo "<img class = 'image' src = ../img/expensive.jpg>";
+                echo "<div class = 'overlay'>";
+                echo "<h2>Most Expensive to Least</h2>";
+                while($row = mysqli_fetch_array($result)){
+                    echo "<p>".$row[0].": $ ".$row['price']."</p>";
+                }
+                echo "</div>";
+                echo "</div>";
+            } else {
+                echo "0 results";
+            }
+            $sql = "SELECT * FROM Property ORDER BY built ASC";
+            $result = $conn->query($sql);
+
+            if($result->num_rows >0){
+            echo "<div class = 'contain'>";
+                echo "<img class = 'image' src = ../img/OldHomes.jpg>";
+                echo "<div class = 'overlay'>";
+                echo "<h2>Eldest Properties</h2>";
+                while($row = mysqli_fetch_array($result)){
+                    echo "<p>Built in ".$row['built']."</p>";
+                    echo "<p>Name: ".$row[0]."</p>";
+                }
+                echo "</div>";
+                echo "</div>";
+            } else {
+                echo "0 results";
+            }
+
         ?>
 
     </body>

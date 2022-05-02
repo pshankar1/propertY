@@ -44,26 +44,7 @@ p{
     color:red;
     background-color: white;
 }
-tr{
-    text-align:left;
-    display:block;
-    background-color:white;
-    border-style:double;
-    border: 10px;
-    border-color:#2196F3;
-    background-size:contain;
-    background-repeat:no-repeat;
-    width:500px;
-    height:285px;
-    border-radius:10px;
-    opacity:1;
-    position:relative;
-    padding:5px;
-}
-td{
-    text-align:left;
-    font-size:20px;
-}
+
 .contain{
     text-align:center;
     display:block;
@@ -215,3 +196,75 @@ td{
     border-style: solid;
     border-color: #555 transparent transparent transparent;
   }
+form {
+	width: 50%; 
+	margin: 30px auto; 
+	border-radius: 5px; 
+	padding: 10px;
+	background: #FFF8DC;
+	border: 1px solid #6B8E23;
+}
+form p {
+	color: red;
+	margin: 0px;
+}
+.task_input {
+	width: 75%;
+	height: 15px; 
+	padding: 10px;
+	border: 2px solid #6B8E23;
+}
+.add_btn {
+	height: 39px;
+	background: #FFF8DC;
+	color: 	#6B8E23;
+	border: 2px solid #6B8E23;
+	border-radius: 5px; 
+	padding: 5px 20px;
+}
+
+table {
+    width: 50%;
+    margin: 30px auto;
+    border-collapse: collapse;
+}
+
+tr {
+	border-bottom: 1px solid #cbcbcb;
+}
+
+th {
+	font-size: 19px;
+	color: #6B8E23;
+}
+
+th, td{
+	border: none;
+    height: 30px;
+    padding: 2px;
+}
+
+tr:hover {
+	background: #E9E9E9;
+}
+
+.task {
+	text-align: left;
+}
+
+.delete{
+	text-align: center;
+}
+.delete a{
+	color: white;
+	background: #a52a2a;
+	padding: 1px 6px;
+	border-radius: 3px;
+	text-decoration: none;
+}
+.input_form{
+    text-align:center;
+    position: relative;
+    display:block;
+}
+
