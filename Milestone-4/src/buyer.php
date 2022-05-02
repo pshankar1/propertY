@@ -10,12 +10,12 @@
         <form method="POST" action = "search.php">
             <div class = "navbar">
                 <a class="active" href="../../">Logout</a>
-                <input type="text" name = "search" placeholder="Search Price or Owner">
+                <input type="text" name = "search" placeholder="Search Owner and price range">
             </div>
         </form>
         <div class = "">
             <div class = "">
-                <h2>Buy A House With Us</h2>
+                <h2>Buy A House With Us!</h2>
             </div>
         </div>
         <?php
@@ -38,11 +38,13 @@
             echo "<table class = ''>";
             while($row = mysqli_fetch_array($result)){
                 $picture = $row[8];
+                $name = $row[0];
+                echo "<form action= 'wishlist.php' method = 'POST'>";
                 echo "<dl class = 'contain'>";
                 echo "<img class = 'image' src = '../img/$picture.jpg'>";
                 echo "<div class = 'overlay'>";
                 echo "<dt class = 'title'>Name:<dt>";
-                echo " <dd class = 'text'> ".($row['Pname'])."</td>";
+                echo " <dd class = 'text'> ".($row[0])."</td>";
                 echo "<dt class = 'title'>Price:<dt>";
                 echo " <dd class = 'text'> $".($row[1])."</td>";
                 echo "<dt class = 'title'>Location:<dt>";
@@ -58,9 +60,13 @@
                 echo "<dt class = 'title'>Owned by:<dt>";
                 echo " <dd class = 'text'> ".($row[7])."</td>"; 
                 echo '</dl>';
+                echo " <input class = 'button' type='checkbox'  name='$name' >";
+                echo "<input class = 'button' type='submit' value='ADD?'>";
+                echo "</form>";
             }
             echo "</table>";
             echo "</div>";
+            
         } else {
             echo "0 results";
         }

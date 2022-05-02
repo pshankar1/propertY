@@ -7,7 +7,7 @@
         <form method="POST" action = "search.php">
                 <div class = "navbar">
                     <a class="active" href="../../">Logout</a>
-                    <input type="text" name = "search" placeholder="Search Price or owner">
+                    <input type="text" name = "search" placeholder="Search Owner and price range ">
                 </div>
         </form>
             <div class = "">
@@ -36,8 +36,9 @@
     $searching[1]= intval($searching[1]);
 
     $sql = "SELECT * FROM Property
-    INNER JOIN users ON Property.owns = users.username
+    LEFT JOIN users ON Property.owns = users.username
     WHERE Property.price < $searching[1]";
+    
     $result = $conn->query($sql);
 
     if($result->num_rows > 0){
@@ -69,7 +70,7 @@
             echo "</table>";
             echo "</div>";
         } else {
-            echo "0 results";
+            echo "<p>Bro... Is This a real house?</p>";
         }
             
     ?>
